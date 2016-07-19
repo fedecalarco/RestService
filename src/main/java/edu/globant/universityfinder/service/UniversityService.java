@@ -22,6 +22,6 @@ public interface UniversityService {
 
     void remove(Long id);
 
-    void upload(University university);
+    void upload(Long id, University university);
 
 }

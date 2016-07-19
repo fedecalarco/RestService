@@ -17,13 +17,13 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UniversityServiceImpl implements UniversityService {
-    
+
     @Autowired
     UniversityDao universityDao;
 
     @Override
     public void add(University university) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        universityDao.add(university);
     }
 
     @Override
@@ -38,12 +38,23 @@ public class UniversityServiceImpl implements UniversityService {
 
     @Override
     public void remove(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        universityDao.remove(id);
     }
 
     @Override
-    public void upload(University university) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void upload(Long id, University university) {
+        
+        University uni = this.getById(id);
+        
+        uni.setName(university.getName());
+        uni.setAddress(university.getAddress());
+        uni.setCareers(university.getCareers());
+        uni.setEmail(university.getEmail());
+        uni.setLocation(university.getLocation());
+        uni.setPhone(university.getPhone());
+        uni.setWebpage(university.getWebpage());
+
+        universityDao.add(uni);
     }
 
 }

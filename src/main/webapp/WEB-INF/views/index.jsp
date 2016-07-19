@@ -14,14 +14,34 @@
     <body>
         <div>
             <div id="header"><h1>University Finder</h1></div>
-            
+
             <div id="main">
-                
-                
+
+
             </div>
-            
+
             <div id="footer"></div>
         </div>
-        
+
+        <script>
+
+            function addUniversity() {
+
+                $.ajax({
+                    type: "GET",
+                    url: "${pageContext.request.contextPath}/sales/addSaleAjax",
+                    datatype: 'json',
+                    data: {sales: "order"},
+                    success: function (res) {
+                        noname(res);
+                    },
+                    error: function (e) {
+                        alert('Error 2: ' + e);
+                    }
+                });
+            }
+        </script>
+
+
     </body>
 </html>
