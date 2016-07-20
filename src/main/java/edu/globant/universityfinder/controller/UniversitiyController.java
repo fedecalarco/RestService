@@ -5,10 +5,17 @@
  */
 package edu.globant.universityfinder.controller;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 /**
  *
  * @author federico.calarco
  */
-public class HomeController {
+@Controller
+@RequestMapping(value = "/university")
+public class UniversitiyController {
+    
+    
     
 }
