@@ -23,16 +23,13 @@ public class UniversityDaoImpl implements UniversityDao {
     List<University> universityList = new ArrayList<>();
 
     public UniversityDaoImpl() {
-        
+
         University u1 = new University(1L, "Universidad Nacional de La Plata", "La Plata", "55 nro 648", "www.unlp.edu.ar", "221451531", "contacto@unlp.edu.ar");
         University u2 = new University(2L, "Universidad Buenos Aires", "Buenos Aires", "caba", "www.uba.edu.ar", "111451531", "contacto@uba.edu.ar");
-        
-        
+
         universityList.add(u1);
         universityList.add(u2);
     }
-    
-    
 
     @Override
     public void add(University university) {
@@ -47,13 +44,24 @@ public class UniversityDaoImpl implements UniversityDao {
     @Override
     public University getById(Long id) {
 
-        // TODO: 
-        return universityList.get(id.intValue());
+        University university = null;
+
+        // TODO: pass to lambda
+        for (University u : universityList) {
+            if (u.getId().equals(id)) {
+                university = u;
+            }
+        }
+        return university;
     }
 
     @Override
     public void remove(Long id) {
-        universityList.remove(id.intValue());
+
+        universityList.stream().filter((u) -> (u.getId().equals(id))).forEach((u) -> {
+            universityList.remove(u);
+        });
+
     }
 
     @Override

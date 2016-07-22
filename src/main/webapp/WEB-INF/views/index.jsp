@@ -36,7 +36,7 @@
 
                 $.ajax({
                     type: "GET",
-                    url: "${pageContext.request.contextPath}/universities/",
+                    url: "${pageContext.request.contextPath}/api/universities/",
                     datatype: 'json',
                     success: function (response) {
                         showUniversities(response);
@@ -52,10 +52,15 @@
                 $('#content').empty();
 
                 for (i in lstUniversities) {
-                    $('#content').append('<div>' + lstUniversities[i].name + '</div>');
+                    $('#content').append('<a onclick="describeUniversity('+lstUniversities[i].id+')">' + lstUniversities[i].name + '</a><br>'); 
                 }
 
             }
+            
+            function describeUniversity(id){
+                alert(id);
+            }
+                
         </script>
 
 

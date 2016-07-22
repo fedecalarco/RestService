@@ -33,7 +33,9 @@ public class UniversityServiceImpl implements UniversityService {
 
     @Override
     public University getById(Long id) {
+
         return universityDao.getById(id);
+
     }
 
     @Override
@@ -43,9 +45,9 @@ public class UniversityServiceImpl implements UniversityService {
 
     @Override
     public void upload(Long id, University university) {
-        
+
         University uni = this.getById(id);
-        
+
         uni.setName(university.getName());
         uni.setAddress(university.getAddress());
         uni.setCareers(university.getCareers());
